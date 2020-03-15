@@ -3,7 +3,7 @@ rm(list = ls())
 library(tidyverse)
 library(reshape2)
 library(pdftools)
-rawdata <- pdf_data('data/GB2017_output.pdf')
+rawdata <- pdf_data('inst/GB2017_output.pdf')
 TabC2017 <- list()
 for (i in 1:length(rawdata)) {
   med <- rawdata[[i]][order(rawdata[[i]]$y),]
@@ -83,8 +83,13 @@ TabC2011$ISICDes[TabC2011$ISICDes %in% 'NA'] <- NA
 TabC2011 <- dplyr::rename(TabC2011,GB2011 = GB, isic4 = ISIC, isic4Des = ISICDes)
 TabC2011 <- TabC2011[,c('GB2011','GBDes','isic4','isic4Des')]
 
-usethis::use_data(TabC2011,overwrite = T)
-usethis::use_data(TabC2017,overwrite = T)
+TabC2011 <- rename(TabC2011, GB = GB2011)
+TabC2011$yr <- 2011
+TabC2017 <- rename(TabC2017, GB = GB2017)
+TabC2017$yr <- 2017
+TabC <- rbind(TabC2011,TabC2017)
+
+usethis::use_data(TabC,overwrite = T,internal = T)
 # save(TabC2011, TabC2017, file = 'TabC11_17.rdata')
 
 
