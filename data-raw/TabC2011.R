@@ -3,7 +3,7 @@ rm(list = ls())
 library(tidyverse)
 library(reshape2)
 library(pdftools)
-rawdata <- pdf_data('inst/GB2017_output.pdf')
+rawdata <- pdf_data('data-raw/GB2017_output.pdf')
 TabC2017 <- list()
 for (i in 1:length(rawdata)) {
   med <- rawdata[[i]][order(rawdata[[i]]$y),]
