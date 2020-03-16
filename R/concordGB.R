@@ -13,11 +13,11 @@
 #' @return Returns a vector of concorded codes.
 #' @examples
 #' # translate GB2011 codes to isic4 codes
-#' concordanceGB(c('0142','2411'))
+#' concordGB(c('0142','2411'))
 #' @import magrittr
 #' @export
 
-concordanceGB <- function(sourcevar, origin = 'GB2011',
+concordGB <- function(sourcevar, origin = 'GB2011',
                           destination = 'isic4'){
   if (origin %in% c('GB2011','GB2017')){
     yr <- stringr::str_sub(origin,3,6) %>% as.numeric()
