@@ -24,7 +24,7 @@ devtools::install_github('common2016/GB2ISIC')
 
 ```R
 library(GB2ISIC)
-concordanceGB(c('0142','2411'),origin = "GB2011", destination = "isic4")
+concordGB(c('0142','2411'),origin = "GB2011", destination = "isic4")
 ```
 
 这就把0142和2411两个GB2011编码的行业转换成了isic4编码。目前只能将GB2011和GB2017转成isic4，或者将isic4转成GB2011和GB2017。
