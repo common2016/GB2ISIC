@@ -30,8 +30,8 @@ concordGB <- function(sourcevar, origin = 'GB2011',
       TabC <- TabC[TabC$yr == yr,]
       destination <- stringr::str_sub(destination,1,2)
     }
-  }else {
-    TabC <- TransData[['GB17GB11']]
+  }else if (all(c(origin,destination) %in% c('GB2017','GB2011','GB2002'))){
+    TabC <- TransData[['GB171102']]
   }
   return(TabC[(TabC[,origin] %in% sourcevar),destination] %>% unique())
 }
