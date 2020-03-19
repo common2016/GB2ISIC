@@ -89,7 +89,6 @@ TabC2017 <- rename(TabC2017, GB = GB2017)
 TabC2017$yr <- 2017
 TabC <- rbind(TabC2011,TabC2017)
 
-usethis::use_data(TabC,overwrite = T,internal = T)
-# save(TabC2011, TabC2017, file = 'TabC11_17.rdata')
+# save(TabC, file = './data-raw/TabC11_17.rdata')
 
 

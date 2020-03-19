@@ -19,14 +19,19 @@
 
 concordGB <- function(sourcevar, origin = 'GB2011',
                           destination = 'isic4'){
-  if (origin %in% c('GB2011','GB2017')){
-    yr <- stringr::str_sub(origin,3,6) %>% as.numeric()
-    TabC <- TabC[TabC$yr == yr,]
-    origin <- stringr::str_sub(origin,1,2)
-  }else if (destination %in% c('GB2011','GB2017')){
-    yr <- stringr::str_sub(destination,3,6) %>% as.numeric()
-    TabC <- TabC[TabC$yr == yr,]
-    destination <- stringr::str_sub(destination,1,2)
+  if ('isic4' %in% c(origin, destination)){
+    TabC <- TransData[['TabC']]
+    if (origin %in% c('GB2011','GB2017')){
+      yr <- stringr::str_sub(origin,3,6) %>% as.numeric()
+      TabC <- TabC[TabC$yr == yr,]
+      origin <- stringr::str_sub(origin,1,2)
+    }else if (destination %in% c('GB2011','GB2017')){
+      yr <- stringr::str_sub(destination,3,6) %>% as.numeric()
+      TabC <- TabC[TabC$yr == yr,]
+      destination <- stringr::str_sub(destination,1,2)
+    }
+  }else {
+    TabC <- TransData[['GB17GB11']]
   }
   return(TabC[(TabC[,origin] %in% sourcevar),destination] %>% unique())
 }
