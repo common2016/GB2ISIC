@@ -4,9 +4,9 @@
 #' @param sourcevar Vector which contains the codes to be converted.
 #' @param origin	Coding scheme of origin (name enclosed in quotes "").
 #' @param destination	Coding scheme of destination (name enclosed in quotes "").
-#' @details Now \code{'GB2011'} and \code{'GB2017'} can be translated to
-#'   \code{'isic4'}, and \code{'isic4'} can be translated to \code{'GB2011'} or
-#'   \code{'GB2017'}. A product code is 4 digits.
+#' @details Now \code{GB2011} / \code{GB2017} can be translated to
+#'   \code{isic4}, and vice varsa. The transition among \code{GB2002},
+#'   \code{GB2011} and \code{GB2017} is also available. A product code is 4 digits.
 #'
 #'   R package \code{concordance} provides a concordance among HS, HS0, HS1, HS2, HS3, HS4, ISIC2,
 #'    ISIC3, SITC1, SITC2, SITC3, SITC4, BEC, NAICS and SIC.
