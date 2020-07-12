@@ -14,6 +14,8 @@
 #' @examples
 #' # translate GB2011 codes to isic4 codes
 #' concordGB(c('0142','2411'))
+#' # translate GB2011 codes to GB2002 codes with 2 digits
+#' concordGB('37','GB2011','GB2002')
 #' @import magrittr
 #' @export
 
@@ -30,9 +32,21 @@ concordGB <- function(sourcevar, origin = 'GB2011',
       TabC <- TabC[TabC$yr == yr,]
       destination <- stringr::str_sub(destination,1,2)
     }
+
+    # 2 digit for GB code?
+    if (nchar(sourcevar[1]) == 2){
+      TabC[,c('GB','isic4')] <- apply(TabC[,c('GB','isic4')],2, stringr::str_sub, start = 1, end = 2)
+    }
   }else if (all(c(origin,destination) %in% c('GB2017','GB2011','GB2002'))){
     TabC <- TransData[['GB171102']]
+    # 2 digit for GB code?
+    if (nchar(sourcevar[1]) == 2) TabC[,c('GB2011','GB2017','GB2002')] <-
+      apply(TabC[,c('GB2011','GB2017','GB2002')],2, stringr::str_sub, start = 1, end = 2)
   }
-  return(TabC[(TabC[,origin] %in% sourcevar),destination] %>% unique())
+
+  # delete NA
+  ans <- TabC[(TabC[,origin] %in% sourcevar),destination] %>% unique()
+  ans <- ans[!is.na(ans)]
+  return(ans)
 }
 

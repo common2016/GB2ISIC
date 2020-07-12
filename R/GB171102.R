@@ -6,9 +6,9 @@
 #' \describe{
 #' \item{GB2011}{GB code for 2011}
 #' \item{GB2017}{GB code for 2017}
-#' \item{DesGB2017}{GB code descriptions for 2017}
-#' \item{DesGB2011}{GB code descriptions for 2011}
+#' \item{Des2017}{GB code descriptions for 2017}
+#' \item{Des2011}{GB code descriptions for 2011}
 #' \item{GB2002}{GB code for 2002}
-#' \item{DesGB2002}{GB code descriptions for 2002}
+#' \item{Des2002}{GB code descriptions for 2002}
 #' }
 'GB171102'

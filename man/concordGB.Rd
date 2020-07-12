@@ -30,4 +30,6 @@ Now \code{GB2011} / \code{GB2017} can be translated to
 \examples{
 # translate GB2011 codes to isic4 codes
 concordGB(c('0142','2411'))
+# translate GB2011 codes to GB2002 codes with 2 digits
+concordGB('37','GB2011','GB2002')
 }
