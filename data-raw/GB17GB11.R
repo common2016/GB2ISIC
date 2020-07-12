@@ -66,3 +66,6 @@ load('./data-raw/TabC11_17.rdata') # from TabC2011.R
 # 组合数据
 TransData <- list(TabC = TabC, GB171102 = GB171102)
 usethis::use_data(TransData,overwrite = T,internal = T)
+
+GB171102 <- TransData$GB171102
+usethis::use_data(GB171102,overwrite = T)
